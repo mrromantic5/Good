@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{HEAD}}
+<title>Live football — CineFliX</title>
+<meta name="description" content="Watch live football on CineFliX.">
+<script src="js/chatxap-avatar.js" defer></script>
+</head>
+<body>
+<main class="page">
+  <section style="padding:22px 0 8px" id="lvHead"><div class="fhero"><div class="sk" style="height:170px"></div></div></section>
+  <div class="layout" style="margin-top:12px">
+    <div>
+      <div class="live-frame" id="lvFrame"><div class="p-state show" id="lvState"><div><div class="spinner" style="margin:0 auto 14px"></div><p>Finding the stream…</p></div></div></div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px">
+        <p class="dim small" style="flex:1;min-width:200px">Stream not loading or showing ads? Open it directly in a new tab.</p>
+        <a class="btn btn-sm btn-line" id="lvOpen" target="_blank" rel="noopener" hidden><i data-ic="external"></i>Open stream</a>
+        <button class="btn btn-sm btn-ghost" id="lvShare"><i data-ic="share"></i>Share</button>
+      </div>
+    </div>
+    <aside>
+      <div class="panel"><div class="panel-head"><h3 class="h3">More matches</h3><a class="section-sub" href="#" id="lvAll">All football</a></div><div id="lvOthers"></div></div>
+      <div class="panel" id="cmtPanel"></div>
+    </aside>
+  </div>
+  <div id="footSlot"></div>
+</main>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js" crossorigin="anonymous" defer></script>
+<script src="/js/chatxap-realtime-client.js" defer></script>
+<script type="module" src="{{JS}}"></script>
+</body>
+</html>

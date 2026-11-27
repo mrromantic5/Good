@@ -1,0 +1,19 @@
+{
+  "name": "cineflix",
+  "version": "6.1.0",
+  "private": true,
+  "description": "CineFliX \u2014 movies, series and live football on ChatXAP (TECH\u2664LYFE)",
+  "type": "module",
+  "scripts": {
+    "icons": "node scripts/icons.mjs",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.sw.json",
+    "build": "npm run icons && npm run typecheck && node scripts/build.mjs",
+    "dev": "node scripts/build.mjs --watch"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "6.5.1",
+    "esbuild": "^0.24.0",
+    "lightningcss": "^1.28.0",
+    "typescript": "^5.6.0"
+  }
+}

@@ -1,0 +1,10 @@
+<script>
+/* ChatXAP auth gate — runs before first paint (host-aware) */
+(function(){var CX=/^c\.x\.t-lyfe\.com\.ng$/i.test(location.hostname)?'/':'https://c.x.t-lyfe.com.ng/';
+try{var ts=parseInt(localStorage.getItem('chatxap_auth_ts')||'0',10),u=localStorage.getItem('chatxap_user')||localStorage.getItem('chatxap_demo_user');if(ts&&u&&Date.now()-ts<2592e6)return}catch(e){}
+document.documentElement.style.visibility='hidden';
+fetch(CX+'backend/auth_check.php',{credentials:'include',cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
+if(d.status==='authenticated'&&d.user){try{localStorage.setItem('chatxap_user',JSON.stringify(d.user));localStorage.setItem('chatxap_auth_ts',String(Date.now()))}catch(e){}document.documentElement.style.visibility=''}
+else if(d.status==='restricted')location.replace(CX+'restricted.html');else location.replace(CX+'login.html?redirect='+encodeURIComponent(location.href))
+}).catch(function(){location.replace(CX+'login.html?redirect='+encodeURIComponent(location.href))})})();
+</script>
